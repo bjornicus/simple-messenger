@@ -15,7 +15,10 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-  socket.on("message", (msg) => { console.log('message: ' + JSON.stringify(msg));  });
+  socket.on("message", (msg) => { 
+      console.log('message: ' + JSON.stringify(msg));  
+      io.emit('message', msg);
+    });
 });
 
 server.listen(3001, () => {

@@ -1,4 +1,4 @@
-import { Message } from "./messagesSlice";
+import { addMessage, Message } from "./messagesSlice";
 import { useAppDispatch } from '../../app/hooks';
 import { io, Socket } from "socket.io-client";
 import { DefaultEventsMap } from "@socket.io/component-emitter";
@@ -13,6 +13,7 @@ var socketIoConnection: Socket<DefaultEventsMap, DefaultEventsMap> | null = null
 export function connectSocketIO(userName: string, dispatch: AppDispatch ): server {
   if(socketIoConnection == null){
     socketIoConnection = io("localhost:3001");
+    socketIoConnection.on("message", m => dispatch(addMessage(m)))
   }
   return {
     sendMessage: (message) => socketIoConnection?.emit("message", message)

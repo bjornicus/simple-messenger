@@ -16,7 +16,6 @@ export function MessageComposer() {
     return (e) => {
       const message = { from: name, content: currentMessage };
       server.sendMessage(message)
-      dispatch(addMessage(message))
       setCurrentMessage("")
       e.preventDefault()
     };
