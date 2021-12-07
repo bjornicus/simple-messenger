@@ -10,7 +10,7 @@ export function Messages() {
   const history = useAppSelector(selectMessageHistory);
 
   return (
-    <div>
+    <div className={styles.messageLog}>
       {history.map((message, key) => <div key={key}>{message.from}: {message.content}</div>)}
     </div>
   );
