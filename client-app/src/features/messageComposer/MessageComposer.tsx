@@ -10,20 +10,21 @@ export function MessageComposer() {
   const [currentMessage, setCurrentMessage] = useState('');
 
   function sendMessage(): React.MouseEventHandler<HTMLButtonElement> | undefined {
-    return () => {
+    return (e) => {
       dispatch(addMessage({ from: name, content: currentMessage }))
       setCurrentMessage("")
+      e.preventDefault()
     };
   }
 
   return (
-    <div>
+    <form onSubmit={sendMessage} >
       <input
         value={currentMessage}
         onChange={(e) => setCurrentMessage(e.target.value)}
       />
-      <button onClick={sendMessage()} >Send</button>
-    </div>
+      <button type="submit" onClick={sendMessage()} >Send</button>
+    </form>
   );
 
 
