@@ -7,14 +7,18 @@ const { Server } = require("socket.io");
 const { json } = require('express');
 
 const io = new Server(server, {  
-    cors: {    
+    // for local dev with client running on 3000
+    cors: {
         origin: "http://localhost:3000",    
         methods: ["GET", "POST"]  
     }
 });
 
+users = []
+
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  const user = socket.handshake.headers.user;
+  console.log(`${user} connected`);
   socket.on("message", (msg) => { 
       console.log('message: ' + JSON.stringify(msg));  
       io.emit('message', msg);

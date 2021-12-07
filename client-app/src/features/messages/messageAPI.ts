@@ -12,7 +12,7 @@ var socketIoConnection: Socket<DefaultEventsMap, DefaultEventsMap> | null = null
 
 export function connectSocketIO(userName: string, dispatch: AppDispatch ): server {
   if(socketIoConnection == null){
-    socketIoConnection = io("localhost:3001");
+    socketIoConnection = io("localhost:3001", {extraHeaders: { "user": userName }});
     socketIoConnection.on("message", m => dispatch(addMessage(m)))
   }
   return {
