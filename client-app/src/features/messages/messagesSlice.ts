@@ -12,10 +12,7 @@ export interface MessagesState {
 }
 
 const initialState: MessagesState = {
-    history: [
-        {from: "Alice", content: "hello Bob"},
-        {from: "Bob", content: "hi Alice"}
-    ]
+    history: []
 };
 
 
