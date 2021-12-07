@@ -12,10 +12,7 @@ import counterReducer, {
     };
     it('should handle initial state', () => {
       expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
-        history: [
-            {from: "Alice", content: "hello Bob"},
-            {from: "Bob", content: "hi Alice"}
-        ]
+        history: [ ]
     });
     });
   
