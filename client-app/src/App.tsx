@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       {
-        userName == '' ? <User /> : < Messenger />
+        userName === '' ? <User /> : < Messenger />
       }
     </div>
   );

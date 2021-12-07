@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useAppDispatch } from '../../app/hooks';
-import { selectUserName, updateName } from './userSlice';
+import { updateName } from './userSlice';
 
 export function User() {
   const dispatch = useAppDispatch();

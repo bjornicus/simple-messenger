@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { connectSocketIO } from '../messages/messageAPI';
-import { addMessage } from '../messages/messagesSlice';
 import { selectUserName } from '../user/userSlice';
 
 export function MessageComposer() {

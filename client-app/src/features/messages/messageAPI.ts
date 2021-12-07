@@ -1,5 +1,4 @@
 import { addMessage, Message } from "./messagesSlice";
-import { useAppDispatch } from '../../app/hooks';
 import { io, Socket } from "socket.io-client";
 import { DefaultEventsMap } from "@socket.io/component-emitter";
 import { AppDispatch } from "../../app/store";
