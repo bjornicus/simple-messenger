@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { connectSocketIO } from '../messages/messageAPI';
 import { addMessage } from '../messages/messagesSlice';
 import { selectUserName } from '../user/userSlice';
 
@@ -9,9 +10,13 @@ export function MessageComposer() {
   const name = useAppSelector(selectUserName);
   const [currentMessage, setCurrentMessage] = useState('');
 
+  const server = connectSocketIO(name, dispatch)
+
   function sendMessage(): React.MouseEventHandler<HTMLButtonElement> | undefined {
     return (e) => {
-      dispatch(addMessage({ from: name, content: currentMessage }))
+      const message = { from: name, content: currentMessage };
+      server.sendMessage(message)
+      dispatch(addMessage(message))
       setCurrentMessage("")
       e.preventDefault()
     };

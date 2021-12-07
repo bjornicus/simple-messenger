@@ -4,6 +4,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const { json } = require('express');
 
 const io = new Server(server, {  
     cors: {    
@@ -14,7 +15,7 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-  socket.on("message", (msg) => { console.log('message: ' + msg);  });
+  socket.on("message", (msg) => { console.log('message: ' + JSON.stringify(msg));  });
 });
 
 server.listen(3001, () => {
