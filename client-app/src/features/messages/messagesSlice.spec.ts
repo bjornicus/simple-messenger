@@ -3,7 +3,7 @@ import counterReducer, {
     addMessage
   } from './messagesSlice';
   
-  describe('counter reducer', () => {
+  describe('messages reducer', () => {
     const initialState: MessagesState = {
         history: [
             {from: "Alice", content: "hello Bob"},
@@ -20,9 +20,10 @@ import counterReducer, {
     });
   
     it('should handle addMessage', () => {
-      const actual = counterReducer(initialState, addMessage({from: "Eve", content: ""}));
+        const newMessage = { from: "Eve", content: "" };
+      const actual = counterReducer(initialState, addMessage(newMessage));
       expect(actual.history).toHaveLength(3);
-    });
-  
+      expect(actual.history[2]).toEqual(newMessage)
+    });  
   });
   
