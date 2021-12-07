@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addMessage } from '../messages/messagesSlice';
+import { selectUserName } from '../user/userSlice';
 
 export function MessageComposer() {
   const dispatch = useAppDispatch();
+  const name = useAppSelector(selectUserName);
   const [currentMessage, setCurrentMessage] = useState('');
 
   function sendMessage(): React.MouseEventHandler<HTMLButtonElement> | undefined {
     return () => {
-      dispatch(addMessage({ from: "Alice", content: currentMessage }))
+      dispatch(addMessage({ from: name, content: currentMessage }))
       setCurrentMessage("")
     };
   }
