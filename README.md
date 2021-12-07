@@ -12,6 +12,7 @@ The server is a node app using express.js app which will serve the client app as
 
 ## Running the app
 ### For Development
+Have node installed (the code was developed using node v17.2.0).
 To start the server:
 - open a terminal
 - cd to the `server` directory
