@@ -37,3 +37,11 @@ To have tho web app served from the same host and port as the server:
 - brows to [http://localhost:3001](http://localhost:3001)
 
 ## Caveats and next steps
+### Server
+The server is very minmal, with no tests. It also sends the messages it gets to *all* of the connected users, so it's currently more of a chatroom app than a private messaging app. Next steps here would be to set up some tests so that I can TDD more rubust/additional functionality such as:
+- keeping track of connected users and responding with the list of users so clients can select who they want to message
+- supporting a target recipient and delivering the message only to that user (and the sender)
+- adding per conversation message storage, which can be retrieved by the client on connection
+
+### client
+The client app is a little more mature, and has reasonable structure for components and reducers, but the server connection bit is hacked in without tests and I'm not really happy with the current abstraction.  Also, the UI is quite ugly so if I had time I'd add [tailwindcss](https://tailwindcss.com/) and make it look a lot nicer.
