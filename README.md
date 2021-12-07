@@ -5,10 +5,10 @@ A basic messenger app interview takehome project
 There are two components to this app.  A react-redux web app, and a node based serevr.  Socket.IO is used for client-server communication.
 
 ### Client App
-The client app (in `client-app/`) was bootstrapped with `npx create-react-app client-app --template redux-typescript`.  More information about this template and setup can be found in [client-app/README.md](client-app/README).
+The client app (in `client-app/`) was bootstrapped with `npx create-react-app client-app --template redux-typescript`.  More information about this template and setup can be found in [client-app/README.md](client-app/README).  Files in `client-app/public`, `client-app/src/app` as well as most of the files directly in `client-app` and `client-app/src` are unchanged from the template. Exceptions are `src/App.*`, `src/Messenger.tsx`, and `src/app/store.ts`.  Everything in `client-app/src/features` is my code.  I've duplicated the comments that the template provides in `src/features/messagesSlice.ts` about functionality that redux toolkit provides because I found it quite useful when not already familiar with redux toolkit.
 
 ### Server
-The server is a node app using express.js app which will serve the client app as well as host as [socket.io](https://socket.io/) server. 
+The server is a node app using express.js app which will serve the client app as well as host a [socket.io](https://socket.io/) server. 
 
 ## Running the app
 ### For Development
@@ -46,3 +46,6 @@ The server is very minmal, with no tests. It also sends the messages it gets to 
 
 ### client
 The client app is a little more mature, and has reasonable structure for components and reducers, but the server connection bit is hacked in without tests and I'm not really happy with the current abstraction.  Also, the UI is quite ugly so if I had time I'd add [tailwindcss](https://tailwindcss.com/) and make it look a lot nicer.
+
+### Hosting
+If a had a bit more time I would also find a (free) place in the cloud to host this, either by building a docker image and running that, or an environment that will run node.js apps for me.
