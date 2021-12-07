@@ -14,7 +14,8 @@ const io = new Server(server, {
     }
 });
 
-users = []
+app.use(express.static(__dirname + '/client-app'));
+app.get('/', (req, res) => {  res.sendFile(__dirname + '/client-app/index.html');});
 
 io.on('connection', (socket) => {
   const user = socket.handshake.headers.user;
