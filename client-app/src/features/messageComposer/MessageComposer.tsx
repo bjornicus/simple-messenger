@@ -5,12 +5,12 @@ import { addMessage } from '../messages/messagesSlice';
 
 export function MessageComposer() {
   const dispatch = useAppDispatch();
-  const [currentMessage, setcurrentMessage] = useState('');
+  const [currentMessage, setCurrentMessage] = useState('');
 
   function sendMessage(): React.MouseEventHandler<HTMLButtonElement> | undefined {
     return () => {
       dispatch(addMessage({ from: "Alice", content: currentMessage }))
-      setcurrentMessage("")
+      setCurrentMessage("")
     };
   }
 
@@ -18,7 +18,7 @@ export function MessageComposer() {
     <div>
       <input
         value={currentMessage}
-        onChange={(e) => setcurrentMessage(e.target.value)}
+        onChange={(e) => setCurrentMessage(e.target.value)}
       />
       <button onClick={sendMessage()} >Send</button>
     </div>
