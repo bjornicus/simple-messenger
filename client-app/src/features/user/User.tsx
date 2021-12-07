@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { selectUserName, updateName } from './userSlice';
 
 export function User() {
   const dispatch = useAppDispatch();
-  const name = useAppSelector(selectUserName);
-  
+  const [nameContent, setNameContent] = useState('');
+    
   return (
     <div>
+      <div> Who are you?</div>
       <input
-        value={name}
-        onChange={(e) => {dispatch(updateName(e.target.value))}}
-      />
+        value={nameContent}
+        onChange={(e) => setNameContent(e.target.value) }/>
+      <button onClick={() => dispatch(updateName(nameContent))}>Continue</button>
     </div>
   );
 }
