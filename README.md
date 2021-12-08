@@ -48,4 +48,4 @@ The server is very minmal, with no tests. It also sends the messages it gets to 
 The client app is a little more mature, and has reasonable structure for components and reducers, but the server connection bit is hacked in without tests and I'm not really happy with the current abstraction.  Also, the UI is quite ugly so if I had time I'd add [tailwindcss](https://tailwindcss.com/) and make it look a lot nicer.
 
 ### Hosting
-If a had a bit more time I would also find a (free) place in the cloud to host this, either by building a docker image and running that, or an environment that will run node.js apps for me.
+I've deployed an instance on a DigitalOcean droplet at [http://165.232.156.250/](http://165.232.156.250/)
